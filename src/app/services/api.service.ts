@@ -35,33 +35,33 @@ export class ApiService {
     // public getTrainingById(id: number) {
     //     return this.http.get<Training>(environment.host + "/trainings/" + id);
     // }
-    // public postTraining(data: any) {
-    //     //console.log(data);
-    //    return this.http.post<any>(environment.host + "/trainings", data)
+    public postCity(data: any) {
+        //console.log(data);
+       return this.http.post<any>(environment.host + "/cities", data)
 
-    // }
+     }
     // public delItem(training: Training) {
     //     //console.log(training)
     //    return this.http.delete(environment.host + "/trainings/" + training.id)
 
     // }
-    // public updateTraining(data: any) {
-    //     //console.log(data);
-    //    return this.http.put<any>(environment.host + "/trainings/" + data.id, data)
+    public updateCity(data: any) {
+        //console.log(data);
+       return this.http.put<any>(environment.host + "/cities/" + data.id, data)
 
-    // }
+    }
     // // save customer in bdd
     // public postCustomer(data: any) {
     //     //console.log(data);
     //    return this.http.post<any>(environment.host + "/customers", data)
 
     // }
-    // // get customer with mail param
-    // public getCustomer(email: string) {
-    //     //console.log(email)
-    //     let queryParams = new HttpParams();
-    //     queryParams = queryParams.append("email", email);
-    //     //console.log(queryParams)
-    //     return this.http.get<Customer[]>(environment.host + "/customers", { params: queryParams })
-    // }
+    // get customer with mail param
+    public getUser(email: string) {
+        //console.log(email)
+        let queryParams = new HttpParams();
+        queryParams = queryParams.append("email", email);
+        //console.log(queryParams)
+        return this.http.get<User[]>(environment.host + "/users", { params: queryParams })
+    }
 }

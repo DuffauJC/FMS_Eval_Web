@@ -11,6 +11,9 @@ import { CitiesComponent } from './components/cities/cities.component';
 import { CityTheaterComponent } from './components/cityTheater/cityTheater.component';
 import { TheaterComponent } from './components/theater/theater.component';
 import { HomeComponent } from './components/home/home.component';
+import { HomeAdminComponent } from './components/admin/homeAdmin.component';
+import { AddCityComponent } from './components/admin/addCity/addCity.component';
+import { ListCityComponent } from './components/admin/listCity/listCity.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { HomeComponent } from './components/home/home.component';
     CitiesComponent,
     CityTheaterComponent,
     TheaterComponent,
-    HomeComponent
+    HomeComponent,
+    HomeAdminComponent,
+    AddCityComponent,
+    ListCityComponent
   ],
   imports: [
     BrowserModule,
