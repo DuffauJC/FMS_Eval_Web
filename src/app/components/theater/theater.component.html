@@ -1,13 +1,16 @@
 <div class="container">
-<h1>Les cinémas de la ville.</h1>
+  <h1>{{theaterName}}</h1>
+  <h4>A l'affiche.</h4>
   <div *ngIf="listMovies else loading" class="md-6 d-flex flex-wrap listAdmin">
 
     <!-- cities-->
     <div *ngFor="let movie of listMovies">
-
-      <div class="card cityCard">
+      <div class="card movieCard">
+        <img src="{{movie.img}}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h4 class="name">  {{movie.name}} </h4>
+          <p class="card-text">Sortie en salle : {{movie.date | date:"MM/dd/yy" }}</p>
+          <h5 class="card-title">{{movie.name}}</h5>
+          <p class="card-text">{{movie.description}}</p>
         </div>
       </div>
     </div>

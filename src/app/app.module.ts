@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { CitiesComponent } from './components/cities/cities.component';
 import { CityTheaterComponent } from './components/cityTheater/cityTheater.component';
 import { TheaterComponent } from './components/theater/theater.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CitiesComponent,
     CityTheaterComponent,
-    TheaterComponent
+    TheaterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

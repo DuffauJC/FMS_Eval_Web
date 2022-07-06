@@ -12,7 +12,8 @@
       "id": 3,
       "name": "Tarbes "
     }
-  ], "theaters": [
+  ],
+  "theaters": [
     {
       "id": 1,
       "idCity": 1,
@@ -34,49 +35,74 @@
     {
       "id": 4,
       "idCity": 3,
-      "name": "Utopia Tarbes ",
+      "name": "Utopia Tarbes",
       "address": "av de la grotte"
     }
   ],
   "movies": [
     {
       "id": 1,
-      "idTheater": 1,
+      "theaters": [
+        1,
+        2,
+        3,
+        4
+      ],
       "name": "LES MINIONS 2 : IL ETAIT UNE FOIS GRU",
       "description": "Alors que les années 70 battent leur plein, Gru qui grandit en banlieue au milieu des jeans à pattes d'éléphants et des chevelures en fleur...",
-      "date": "2022-07-05T08:27:02.335Z",
+      "date": "2022-07-06T08:27:02.335Z",
       "img": "assets/img/minions2.jpg"
     },
     {
       "id": 2,
-      "idTheater": 1,
+      "theaters": [
+        1,
+        2,
+        3,
+        4
+      ],
       "name": "Buzz l'éclair",
       "description": "La véritable histoire du légendaire Ranger de l'espace qui, depuis, a inspiré le jouet que nous connaissons tous.",
-      "date": "2022-07-05T08:27:02.335Z",
+      "date": "2022-07-06T08:27:02.335Z",
       "img": "assets/img/buzz.jpg"
     },
     {
       "id": 3,
-      "idTheater": 2,
+      "theaters": [
+        1,
+        2,
+        3,
+        4
+      ],
       "name": "Elvis",
       "description": "La vie et l'œuvre musicale d'Elvis Presley à travers le prisme de ses rapports complexes avec son mystérieux manager.",
-      "date": "2022-07-05T08:27:02.335Z",
+      "date": "2022-07-06T08:27:02.335Z",
       "img": "assets/img/elvis.jpg"
     },
     {
       "id": 4,
-      "idTheater": 3,
+      "theaters": [
+        1,
+        2,
+        3,
+        4
+      ],
       "name": "Top Gun Maverick",
       "description": "Après avoir été l'un des meilleurs pilotes de chasse de la Marine américaine pendant plus de trente ans, Pete (Maverick) Mitchell continue à repousser ses limites en tant que pilote d'essai.",
-      "date": "2022-07-05T08:27:02.335Z",
+      "date": "2022-07-06T08:27:02.335Z",
       "img": "assets/img/topgun.jpg"
     },
     {
       "id": 5,
-      "idTheater": 4,
+      "theaters": [
+        1,
+        2,
+        3,
+        4
+      ],
       "name": "DOCTOR STRANGE IN THE MULTIVERSE OF MADNESS",
       "description": "Voyagez dans l'inconnu avec Doctor Strange, qui avec l'aide d'anciens et de nouveaux alliés mystiques, traverse les réalités hallucinantes et dangereuses du multivers pour affronter un nouvel adversaire mystérieux.",
-      "date": "2022-07-05T08:27:02.335Z",
+      "date": "2022-07-06T08:27:02.335Z",
       "img": "assets/img/strange.jpg"
     }
   ],

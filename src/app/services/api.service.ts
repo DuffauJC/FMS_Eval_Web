@@ -16,15 +16,22 @@ export class ApiService {
     public getTheaters() {
         return this.http.get<Theater[]>(environment.host + "/theaters")
     }
+    public getTheaterById(id: number) {
+        return this.http.get<Theater[]>(environment.host + "/theaters?id=" + id)
+    }
     public getTheatersByCityId(id:any) {
         return this.http.get<Theater[]>(environment.host + "/theaters?idCity="+id)
     }
+    public getTheaterByName(name: any) {
+        return this.http.get<Theater[]>(environment.host + "/theaters?name="+name)
+    }
     public getMoviesByTheaterId(id: any) {
-        return this.http.get<Movie[]>(environment.host + "/movies?idTheater=" + id)
+        return this.http.get<Movie[]>(environment.host + "/movies?theaters/="+id)
     }
     public getCities() {
         return this.http.get<City[]>(environment.host + "/cities")
     }
+
     // public getTrainingById(id: number) {
     //     return this.http.get<Training>(environment.host + "/trainings/" + id);
     // }
