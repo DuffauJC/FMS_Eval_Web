@@ -1,0 +1,21 @@
+<div class="container">
+<h1>Les villes où nous somme présent.</h1>
+  <div *ngIf="listCities else loading" class="md-6 d-flex flex-wrap listAdmin">
+
+    <!-- cities-->
+    <div *ngFor="let city of listCities">
+
+      <div class="card cityCard" (click)="onCityTheater(city.id)">
+        <!-- <div class="card cityCard" routerLink="/theaters/{{city.id}}"> -->
+        <div class="card-body">
+            <h4 class="name">  {{city.name}} </h4>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <ng-template #loading>
+    <div>Loading...</div>
+  </ng-template>
+</div>

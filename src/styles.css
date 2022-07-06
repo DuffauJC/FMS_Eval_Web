@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+#header {
+    background-color: burlywood;
+    margin-bottom: 10px;
+    position: sticky !important;
+    top: 0px;
+    z-index: 10;
+
+}
+.logo {
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 200px;
+}
+/* not found 404 ********************** */
+.error {
+    background-image: url("/assets/img/404.jpg");
+    background-position: center;
+    height: 400px;
+}
+.container {
+    margin-top: 70px;
+}
+li {
+    cursor: pointer;
+}
+/* ********  card city */
+.cityCard{
+    cursor: pointer;
+    width: 18rem;
+    background-image: url("/assets/img/theater.jpg");
+    background-position: bottom;
+    height: 200px;
+    margin: 20px;
+    box-shadow: 10px 10px 5px 0px rgba(222, 184, 135,0.75);
+}
+.cityCard h4{
+    color: white;
+    position: relative;
+    top:120px
+}
