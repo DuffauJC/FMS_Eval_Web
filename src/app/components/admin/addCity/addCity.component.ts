@@ -45,13 +45,8 @@ export class AddCityComponent implements OnInit, DoCheck {
         }
     }
     onSaveCity(form: FormGroup) {
-
-        //console.log(form.value)
-
         this.data.name = form.value.name
-       
         document.getElementById('modal-btn')?.classList.toggle("is_active")
-
         this.apiService.postCity(this.data)
             .subscribe({
                 next: (data) => console.log(data),

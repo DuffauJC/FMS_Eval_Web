@@ -39,24 +39,24 @@ li {
 /* ********  card city */
 .cityCard {
     cursor: pointer;
-    width: 18rem;
+    width: 280px;
     background-image: url("/assets/img/theater.jpg");
     background-position: bottom;
-    height: 200px;
+    height: 350px;
     margin: 20px;
     box-shadow: 10px 10px 5px 0px rgba(222, 184, 135, 0.75);
 }
 
-.cityCard h4 {
+.cityCard .card-body {
     color: white;
     position: relative;
-    top: 120px
+    top: 50px
 }
 
 /* ******* movie card */
 .movieCard {
     cursor: pointer;
-    width: 18rem;
+    width: 280px;
     background-position: bottom;
     height: 720px;
     margin: 20px;

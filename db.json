@@ -13,8 +13,16 @@
       "name": "Tarbes "
     },
     {
+      "id": 4,
+      "name": "Mont-de-Marsan"
+    },
+    {
+      "name": "Lyon",
+      "id": 5
+    },
+    {
       "name": "Montauban",
-      "id": 4
+      "id": 6
     }
   ],
   "theaters": [

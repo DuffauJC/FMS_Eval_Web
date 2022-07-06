@@ -1,16 +1,18 @@
 <div class="container">
-<h1>Liste des villes.</h1>
-  <div *ngIf="listCities else loading" class="d-flex flex-wrap listAdmin">
-    <!-- product -->
-    <div *ngFor="let city of listCities">
-      <div class="card cityCard"(click)="openPopup(city)">
-        <div class="card-body">
-          <h4 class="name"> {{city.name}} </h4>
-        </div>
+<h1>Nos cinémas.</h1>
+<div *ngIf="listTheaters else loading" class="md-6 d-flex flex-wrap listAdmin">
+  <!-- cities-->
+  <div *ngFor="let theater of listTheaters">
+
+    <div class="card cityCard" (click)="openPopup(theater)">
+      <div class="card-body">
+        <h4 class="name"> {{theater.name}} </h4>
+        <p>{{theater.address}}</p>
       </div>
     </div>
-    <!-- end product -->
   </div>
+
+</div>
 
   <ng-template #loading>
     <div>Loading...</div>
@@ -31,10 +33,13 @@
         <div class="login-container animated fadeInDown bootstrap snippets bootdeys">
           <div class="loginbox bg-white">
 
-            <form [formGroup]="ngForm" (ngSubmit)="onUpdateCity(ngForm)">
+            <form [formGroup]="ngForm" (ngSubmit)="onUpdateTheater(ngForm)">
               <div class="loginbox-textbox">
                 <input type="text" name="name" class="form-control" placeholder="Nom" formControlName="name">
               </div>
+                <div class="loginbox-textbox">
+                  <input type="text" name="address" class="form-control" placeholder="Addresse" formControlName="address">
+                </div>
               <div class="loginbox-submit">
                 <button type="submit" [disabled]="!ngForm.valid" class="btn btn-success btn-block" id="modal-btn">
                   <span>Submit</span>
@@ -49,7 +54,7 @@
                 </button>
               </div>
               <div *ngIf="display" class=" alert alert-success col-md-12">
-                Formation modifiée.
+                Cinéma modifié.
               </div>
             </form>
           </div>

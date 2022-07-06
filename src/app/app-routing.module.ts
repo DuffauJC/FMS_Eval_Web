@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddCityComponent } from './components/admin/addCity/addCity.component';
 import { HomeAdminComponent } from './components/admin/homeAdmin.component';
 import { ListCityComponent } from './components/admin/listCity/listCity.component';
+import { ListTheaterComponent } from './components/admin/listTheater/listTheater.component';
 import { CitiesComponent } from './components/cities/cities.component';
 import { CityTheaterComponent } from './components/cityTheater/cityTheater.component';
 import { HomeComponent } from './components/home/home.component';
@@ -38,6 +39,12 @@ const routes: Routes = [
   {
     path: 'listCity',
     component: ListCityComponent,
+    canActivate: [AuthGuard],
+    data: { roles: [Role.Admin] }
+  },
+  {
+    path: 'listTheater',
+    component: ListTheaterComponent,
     canActivate: [AuthGuard],
     data: { roles: [Role.Admin] }
   },

@@ -1,13 +1,13 @@
 <div class="container">
   <div class="modal-content" id="addFormSize">
     <div class="modal-header">
-    
+    <h1>Ajout ville.</h1>
     </div>
     <div class="login-container animated fadeInDown bootstrap snippets bootdeys">
       <div class="loginbox bg-white">
         <div class="loginbox-social">
           <div class="social-title ">
-            <img src="/src/assets/img/house.png" alt="194x228" class="img-responsive">
+            <img src="../../assets/img/house.png" alt="194x228" class="img-responsive">
           </div>
         </div>
         <form [formGroup]="ngForm" (ngSubmit)="onSaveCity(ngForm)">
@@ -27,7 +27,7 @@
               </div>
             </button>
             <div *ngIf="display" class=" alert alert-success col-md-12">
-              Formation enregistrée.
+              Ville enregistrée.
             </div>
              <div *ngIf="problemAdmin" class=" alert alert-danger col-md-12 ">
                Vous avec été déconnécté, reconnectez-vous.

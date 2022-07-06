@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HomeAdminComponent } from './components/admin/homeAdmin.component';
 import { AddCityComponent } from './components/admin/addCity/addCity.component';
 import { ListCityComponent } from './components/admin/listCity/listCity.component';
+import { ListTheaterComponent } from './components/admin/listTheater/listTheater.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ListCityComponent } from './components/admin/listCity/listCity.componen
     HomeComponent,
     HomeAdminComponent,
     AddCityComponent,
-    ListCityComponent
+    ListCityComponent,
+    ListTheaterComponent
   ],
   imports: [
     BrowserModule,

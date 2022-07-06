@@ -50,6 +50,11 @@ export class ApiService {
        return this.http.put<any>(environment.host + "/cities/" + data.id, data)
 
     }
+    public updateTheater(data: any) {
+        //console.log(data);
+        return this.http.put<any>(environment.host + "/theaters/" + data.id, data)
+
+    }
     // // save customer in bdd
     // public postCustomer(data: any) {
     //     //console.log(data);
