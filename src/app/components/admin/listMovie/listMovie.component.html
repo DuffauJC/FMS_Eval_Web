@@ -37,18 +37,30 @@
 
             <form [formGroup]="ngForm" (ngSubmit)="onUpdateMovie(ngForm)">
               <div class="loginbox-textbox">
-                <input type="text" name="name" class="form-control" placeholder="Nom" formControlName="name">
+                <label class="control-label">Nom : </label>
+                <input type="text" name="name" class="form-control" placeholder="Nom" formControlName="name" required>
               </div>
               <div class="loginbox-textbox">
-                <input type="text" name="address" class="form-control" placeholder="Addresse" formControlName="address">
+                <label class="control-label">Description : </label>
+                <input type="text" name="description" class="form-control" placeholder="Description" formControlName="description"
+                  required>
               </div>
               <div class="loginbox-textbox">
-                <label class="control-label">Ville : </label>
-                <select [(ngModel)]="model" type="number" name="idCity" class="form-control" placeholder="Ville"
-                  formControlName="idCity" required>
-                  <option *ngFor="let item of listCities" [value]="item.id">{{item.name}}</option>
-                </select>
+                <label class="control-label">Img : </label>
+                <input type="text" name="img" class="form-control" placeholder="assets/ img / unknown.png" formControlName="img">
               </div>
+              <div class="loginbox-textbox">
+                <label class="control-label">Date de sortie : </label>
+                <input type="date" name="date" class="form-control" formControlName="date">
+              </div>
+              <div class="loginbox-textbox">
+                <p class="addMovieText">Liste des cinémas à sélectionner.</p>
+              </div>
+                <div class="loginbox-textbox" *ngFor="let theater of listTheater; let i=index">
+                  <label class="control-label">{{theater.name}}</label>
+                  <input [value]="theater.id" (change)="onCheckboxChange($event)" class="form-check-input d-flex" type="checkbox"
+                    id="flexCheckDefault" formArrayName="selectedTheaters">
+                </div>
               <div class="loginbox-submit">
                 <button type="submit" [disabled]="!ngForm.valid" class="btn btn-success btn-block" id="modal-btn">
                   <span>Submit</span>

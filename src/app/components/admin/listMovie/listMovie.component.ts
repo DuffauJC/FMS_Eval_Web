@@ -1,10 +1,10 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticateService } from 'src/app/services/authentificate.service';
 import { ApiService } from 'src/app/services/api.service';
-import { City } from 'src/app/model/city.model';
 import { Movie } from 'src/app/model/movie.model';
+import { Theater } from 'src/app/model/theater.model';
 
 
 @Component({
@@ -19,17 +19,20 @@ export class ListMovieComponent implements OnInit, DoCheck {
     display = false
     problemAdmin = false
 
-    data = {
+   data = {
         id: 0,
         name: "",
         date: new Date,
-        img: "assets/ img / unknown.png",
+        img: "assets/img/unknown.png",
         description: "",
-        theaters:[]
+        theaters: <any>[]
     }
-    listCities: City[] | undefined
-    model: City | undefined
+   
     listMovies: Movie[] | undefined
+    listTheater: Theater[] | undefined
+    model: Theater | undefined
+
+
 
     constructor(
         private apiService: ApiService,
@@ -41,20 +44,20 @@ export class ListMovieComponent implements OnInit, DoCheck {
             date: new FormControl(this.data.date),
             img: new FormControl(this.data.img),
             description: new FormControl(this.data.description),
-            theaters:new FormControl(this.data.theaters)
+            selectedTheaters: new FormArray([])
         })
     }
     ngOnInit() {
         this.getAllMovies()
-        this.getAllCities()
+        this.getAllTheater()
     }
     ngDoCheck(): void {
         this.verifySession()
     }
-    getAllCities() {
-        this.listCities = []
-        this.apiService.getCities().subscribe({
-            next: (data) => this.listCities = data,
+    getAllTheater() {
+        this.listTheater = []
+        this.apiService.getTheaters().subscribe({
+            next: (data) => this.listTheater = data,
             error: (err) => this.error = err.message,
             complete: () => this.error = null
         })
@@ -85,7 +88,7 @@ export class ListMovieComponent implements OnInit, DoCheck {
             date: new FormControl(movie.date),
             img: new FormControl(movie.img),
             description: new FormControl(movie.description),
-            theaters:new FormControl(movie.theaters)
+            selectedTheaters: new FormArray([])
         })
         this.data.id = movie.id
     }
@@ -94,11 +97,16 @@ export class ListMovieComponent implements OnInit, DoCheck {
     }
     onUpdateMovie(form: FormGroup) {
         this.data.name = form.value.name
+        this.data.img = form.value.img
         this.data.description = form.value.description
         this.data.date = form.value.date
-        this.data.img = form.value.img
-        this.data.theaters=form.value.description
-     
+
+        //filtre sur index
+        let tab = [] = form.value.selectedTheaters
+        for (let index = 1; index <= tab.length; index++) {
+            this.data.theaters.push(index)
+
+        }
         document.getElementById('modal-btn')?.classList.toggle('is_active')
 
         this.apiService.updateMovie(this.data)
@@ -124,6 +132,17 @@ export class ListMovieComponent implements OnInit, DoCheck {
                     error: (err) => this.error = err.message,
 
                 })
+        }
+    }
+    onCheckboxChange(event: any) {
+        const selectedTheaters: FormArray = this.ngForm.get('selectedTheaters') as FormArray;
+
+        if (event.target.checked) {
+            selectedTheaters.push(new FormControl(event.target.value));
+        } else {
+            const index = selectedTheaters.controls
+                .findIndex(x => x.value === event.target.value);
+            selectedTheaters.removeAt(index);
         }
     }
 

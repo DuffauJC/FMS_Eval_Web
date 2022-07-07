@@ -94,7 +94,7 @@ export class AddMovieComponent implements OnInit, DoCheck {
        
         //filtre sur index
         let tab = [] = form.value.selectedTheaters
-        for (let index = 1; index < tab.length; index++) {
+        for (let index = 1; index <= tab.length; index++) {
             this.data.theaters.push(index)
             
         }

@@ -4,7 +4,6 @@ import { Theater } from '../model/theater.model';
 import { environment } from 'src/environments/environment';
 import { User } from '../model/user.model';
 import { City } from '../model/city.model'
-import { Observable } from 'rxjs';
 import { Movie } from '../model/movie.model';
 
 
@@ -61,12 +60,7 @@ export class ApiService {
     public postMovie(data: any) {
         return this.http.post<any>(environment.host + "/movies", data)
     }
-    // // save customer in bdd
-    // public postCustomer(data: any) {
-    //     //console.log(data);
-    //    return this.http.post<any>(environment.host + "/customers", data)
-
-    // }
+  
     // get customer with mail param
     public getUser(email: string) {
         //console.log(email)
