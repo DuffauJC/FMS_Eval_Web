@@ -3,10 +3,10 @@
   <div *ngIf="listMovies else loading" class="md-6 d-flex flex-wrap listAdmin">
     <!-- cities-->
     <div *ngFor="let movie of listMovies">
-      <div class="card movieCard"(click)="openPopup(movie)">
+      <div class="card movieCard">
         <a class="x-del" (click)="delMovie(movie)"><img src="../../../assets/img/x-button.png" alt="delete"></a>
         <img src="{{movie.img}}" class="card-img-top" alt="...">
-        <div class="card-body">
+        <div class="card-body"(click)="openPopup(movie)">
           
           <p class="card-text">Sortie en salle : {{movie.date | date:"MM/dd/yy" }}</p>
           <h5 class="card-title">{{movie.name}}</h5>

@@ -120,11 +120,12 @@
       "name": "Thor",
       "date": "2022-07-13",
       "img": "assets/img/thor.jpg",
-      "description": "La fête de l'étincelle",
+      "description": "fait pleins d'éclairs",
       "theaters": [
-        1,
         2,
-        3
+        3,
+        4,
+        5
       ]
     }
   ],

@@ -102,10 +102,10 @@ export class ListMovieComponent implements OnInit, DoCheck {
         this.data.date = form.value.date
 
         //filtre sur index
-        let tab = [] = form.value.selectedTheaters
-        for (let index = 1; index <= tab.length; index++) {
-            this.data.theaters.push(index)
-
+        let tab = []
+        tab = form.value.selectedTheaters
+        for (let index = 1; index < tab.length; index++) {
+            this.data.theaters.push(parseInt(tab[index]))
         }
         document.getElementById('modal-btn')?.classList.toggle('is_active')
 
