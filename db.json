@@ -13,16 +13,8 @@
       "name": "Tarbes "
     },
     {
-      "id": 4,
-      "name": "Mont-de-Marsan"
-    },
-    {
-      "name": "Lyon",
-      "id": 5
-    },
-    {
       "name": "Montauban",
-      "id": 6
+      "id": 4
     }
   ],
   "theaters": [
@@ -36,7 +28,7 @@
       "id": 2,
       "idCity": 1,
       "name": "Utopia Wilson Toulouse",
-      "address": "25, rue de la carotte"
+      "address": "25 rue de la Poire"
     },
     {
       "id": 3,
@@ -49,6 +41,12 @@
       "idCity": 3,
       "name": "Utopia Tarbes",
       "address": "av de la grotte"
+    },
+    {
+      "name": "Utopia Montauban",
+      "address": "Place du Voisinage",
+      "idCity": 4,
+      "id": 5
     }
   ],
   "movies": [
@@ -116,6 +114,18 @@
       "description": "Voyagez dans l'inconnu avec Doctor Strange, qui avec l'aide d'anciens et de nouveaux alliés mystiques, traverse les réalités hallucinantes et dangereuses du multivers pour affronter un nouvel adversaire mystérieux.",
       "date": "2022-07-06T08:27:02.335Z",
       "img": "assets/img/strange.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Thor",
+      "date": "2022-07-13",
+      "img": "assets/img/unknown.png",
+      "description": "La fête de l'étincelle",
+      "theaters": [
+        1,
+        2,
+        3
+      ]
     }
   ],
   "users": [

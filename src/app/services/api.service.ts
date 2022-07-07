@@ -31,29 +31,35 @@ export class ApiService {
     public getCities() {
         return this.http.get<City[]>(environment.host + "/cities")
     }
-
-    // public getTrainingById(id: number) {
-    //     return this.http.get<Training>(environment.host + "/trainings/" + id);
-    // }
     public postCity(data: any) {
-        //console.log(data);
        return this.http.post<any>(environment.host + "/cities", data)
-
      }
-    // public delItem(training: Training) {
-    //     //console.log(training)
-    //    return this.http.delete(environment.host + "/trainings/" + training.id)
-
-    // }
+    public delCity(city:City) {
+       return this.http.delete(environment.host + "/cities/" + city.id)
+    }
     public updateCity(data: any) {
-        //console.log(data);
        return this.http.put<any>(environment.host + "/cities/" + data.id, data)
-
+    }
+    public postTheater(data: any) {
+        return this.http.post<any>(environment.host + "/theaters", data)
     }
     public updateTheater(data: any) {
-        //console.log(data);
         return this.http.put<any>(environment.host + "/theaters/" + data.id, data)
-
+    }
+    public delTheater(theater: Theater) {
+        return this.http.delete(environment.host + "/theaters/" + theater.id)
+    }
+    public getMovies() {
+        return this.http.get<Movie[]>(environment.host + "/movies")
+    }
+    public updateMovie(data: any) {
+        return this.http.put<any>(environment.host + "/movies/" + data.id, data)
+    }
+    public delMovie(movie: Movie) {
+        return this.http.delete(environment.host + "/movies/" + movie.id)
+    }
+    public postMovie(data: any) {
+        return this.http.post<any>(environment.host + "/movies", data)
     }
     // // save customer in bdd
     // public postCustomer(data: any) {

@@ -1,10 +1,12 @@
 <div class="container">
-<h1>Liste des villes.</h1>
+  <h1>Liste des villes.</h1>
   <div *ngIf="listCities else loading" class="d-flex flex-wrap listAdmin">
     <!-- product -->
     <div *ngFor="let city of listCities">
-      <div class="card cityCard"(click)="openPopup(city)">
-        <div class="card-body">
+      <div class="card cityCard">
+        <a class="x-del" (click)="delCity(city)"><img src="../../../assets/img/x-button.png" alt="delete"></a>
+        <!-- Button trigger modal -->
+        <div class="card-body" (click)="openPopup(city)">
           <h4 class="name"> {{city.name}} </h4>
         </div>
       </div>
@@ -49,7 +51,7 @@
                 </button>
               </div>
               <div *ngIf="display" class=" alert alert-success col-md-12">
-                Formation modifiée.
+                Ville modifiée.
               </div>
             </form>
           </div>
@@ -57,6 +59,10 @@
       </div>
     </div>
   </div>
-  <div *ngIf="problemAdmin" class=" alert alert-danger col-md-12 ">
-    Vous avec été déconnécté, reconnectez-vous.
-  </div>
+</div>
+
+
+
+<div *ngIf="problemAdmin" class=" alert alert-danger col-md-12 ">
+  Vous avec été déconnécté, reconnectez-vous.
+</div>

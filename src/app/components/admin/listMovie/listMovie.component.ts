@@ -3,16 +3,16 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticateService } from 'src/app/services/authentificate.service';
 import { ApiService } from 'src/app/services/api.service';
-import { Theater } from 'src/app/model/theater.model';
 import { City } from 'src/app/model/city.model';
+import { Movie } from 'src/app/model/movie.model';
 
 
 @Component({
-    selector: 'app-listtheater',
-    templateUrl: 'listTheater.component.html'
+    selector: 'app-listmovie',
+    templateUrl: 'listMovie.component.html'
 })
 
-export class ListTheaterComponent implements OnInit, DoCheck {
+export class ListMovieComponent implements OnInit, DoCheck {
     ngForm: FormGroup
     error = null
     displayStyle = "none";
@@ -22,30 +22,30 @@ export class ListTheaterComponent implements OnInit, DoCheck {
     data = {
         id: 0,
         name: "",
-        address: "",
-        idCity:0
+        date: new Date,
+        img: "assets/ img / unknown.png",
+        description: "",
+        theaters:[]
     }
     listCities: City[] | undefined
     model: City | undefined
-    listTheaters: Theater[] | undefined
+    listMovies: Movie[] | undefined
+
     constructor(
         private apiService: ApiService,
         private router: Router, public authenticateService: AuthenticateService, 
     ) {
-        this.data = {
-            id: 0,
-            name: "",
-            address: "",
-            idCity: 0
-        }
+       
         this.ngForm = new FormGroup({
             name: new FormControl(this.data.name),
-            address: new FormControl(this.data.address),
-            idCity:new FormControl(this.data.idCity)
+            date: new FormControl(this.data.date),
+            img: new FormControl(this.data.img),
+            description: new FormControl(this.data.description),
+            theaters:new FormControl(this.data.theaters)
         })
     }
     ngOnInit() {
-        this.getAllTheaters()
+        this.getAllMovies()
         this.getAllCities()
     }
     ngDoCheck(): void {
@@ -59,10 +59,10 @@ export class ListTheaterComponent implements OnInit, DoCheck {
             complete: () => this.error = null
         })
     }
-    getAllTheaters() {
-        this.listTheaters = []
-        this.apiService.getTheaters().subscribe({
-            next: (data) => this.listTheaters = data,
+    getAllMovies() {
+        this.listMovies = []
+        this.apiService.getMovies().subscribe({
+            next: (data) => this.listMovies = data,
             error: (err) => this.error = err.message,
             complete: () => this.error = null
         })
@@ -78,26 +78,30 @@ export class ListTheaterComponent implements OnInit, DoCheck {
         }
     }
  
-    openPopup(theater: Theater) {
+    openPopup(movie: Movie) {
         this.displayStyle = "block";
         this.ngForm = new FormGroup({
-            name: new FormControl(theater.name),
-            address: new FormControl(theater.address),
-            idCity:new FormControl(theater.idCity)
+            name: new FormControl(movie.name),
+            date: new FormControl(movie.date),
+            img: new FormControl(movie.img),
+            description: new FormControl(movie.description),
+            theaters:new FormControl(movie.theaters)
         })
-        this.data.id = theater.id
+        this.data.id = movie.id
     }
     closePopup() {
         this.displayStyle = "none";
     }
-    onUpdateTheater(form: FormGroup) {
+    onUpdateMovie(form: FormGroup) {
         this.data.name = form.value.name
-        this.data.address = form.value.address
-        this.data.idCity=form.value.idCity
+        this.data.description = form.value.description
+        this.data.date = form.value.date
+        this.data.img = form.value.img
+        this.data.theaters=form.value.description
      
         document.getElementById('modal-btn')?.classList.toggle('is_active')
 
-        this.apiService.updateTheater(this.data)
+        this.apiService.updateMovie(this.data)
             .subscribe({
                 next: (data) => console.log(data),
                 error: (err) => this.error = err.message,
@@ -112,9 +116,9 @@ export class ListTheaterComponent implements OnInit, DoCheck {
             this.ngOnInit()
         }, 500)
     }
-    delTheater(theater: Theater) {
-        if (confirm("Vous êtes sur de vouloir supprimer ce cinéma ?")) {
-            this.apiService.delTheater(theater)
+    delMovie(movie: Movie) {
+        if (confirm("Vous êtes sur de vouloir supprimer ce film ?")) {
+            this.apiService.delMovie(movie)
                 .subscribe({
                     next: (data) => console.log(data),
                     error: (err) => this.error = err.message,

@@ -15,6 +15,9 @@ import { HomeAdminComponent } from './components/admin/homeAdmin.component';
 import { AddCityComponent } from './components/admin/addCity/addCity.component';
 import { ListCityComponent } from './components/admin/listCity/listCity.component';
 import { ListTheaterComponent } from './components/admin/listTheater/listTheater.component';
+import { AddTheaterComponent } from './components/admin/addTheater/addTheater.component';
+import { ListMovieComponent } from './components/admin/listMovie/listMovie.component';
+import { AddMovieComponent } from './components/admin/addMovie/addMovie.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { ListTheaterComponent } from './components/admin/listTheater/listTheater
     HomeAdminComponent,
     AddCityComponent,
     ListCityComponent,
-    ListTheaterComponent
+    ListTheaterComponent,
+    AddTheaterComponent,
+    ListMovieComponent,
+    AddMovieComponent
   ],
   imports: [
     BrowserModule,

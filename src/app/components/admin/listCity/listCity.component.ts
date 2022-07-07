@@ -60,8 +60,6 @@ export class ListCityComponent implements OnInit, DoCheck {
             }, 1500)
         }
     }
- 
-    
     openPopup(city: City) {
         this.displayStyle = "block";
         this.ngForm = new FormGroup({
@@ -95,4 +93,14 @@ export class ListCityComponent implements OnInit, DoCheck {
         }, 500)
     }
 
+    delCity(city: City) {
+        if (confirm("Vous êtes sur de vouloir supprimer cette ville ?")) {
+            this.apiService.delCity(city)
+                .subscribe({
+                    next: (data) => console.log(data),
+                    error: (err) => this.error = err.message,
+
+                })
+        }
+    }
 }

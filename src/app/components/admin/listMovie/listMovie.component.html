@@ -1,18 +1,19 @@
 <div class="container">
-  <h1>Nos cinémas.</h1>
-  <div *ngIf="listTheaters else loading" class="md-6 d-flex flex-wrap listAdmin">
+  <h1>Nos films.</h1>
+  <div *ngIf="listMovies else loading" class="md-6 d-flex flex-wrap listAdmin">
     <!-- cities-->
-    <div *ngFor="let theater of listTheaters">
-
-      <div class="card cityCard">
-        <a class="x-del" (click)="delTheater(theater)"><img src="../../../assets/img/x-button.png" alt="delete"></a>
-        <div class="card-body" (click)="openPopup(theater)">
-          <h4 class="name"> {{theater.name}} </h4>
-          <p>{{theater.address}}</p>
+    <div *ngFor="let movie of listMovies">
+      <div class="card movieCard"(click)="openPopup(movie)">
+        <a class="x-del" (click)="delMovie(movie)"><img src="../../../assets/img/x-button.png" alt="delete"></a>
+        <img src="{{movie.img}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          
+          <p class="card-text">Sortie en salle : {{movie.date | date:"MM/dd/yy" }}</p>
+          <h5 class="card-title">{{movie.name}}</h5>
+          <p class="card-text">{{movie.description}}</p>
         </div>
       </div>
     </div>
-
   </div>
 
   <ng-template #loading>
@@ -34,20 +35,20 @@
         <div class="login-container animated fadeInDown bootstrap snippets bootdeys">
           <div class="loginbox bg-white">
 
-            <form [formGroup]="ngForm" (ngSubmit)="onUpdateTheater(ngForm)">
+            <form [formGroup]="ngForm" (ngSubmit)="onUpdateMovie(ngForm)">
               <div class="loginbox-textbox">
                 <input type="text" name="name" class="form-control" placeholder="Nom" formControlName="name">
               </div>
               <div class="loginbox-textbox">
                 <input type="text" name="address" class="form-control" placeholder="Addresse" formControlName="address">
               </div>
-                <div class="loginbox-textbox">
-                  <label class="control-label">Ville : </label>
-                  <select [(ngModel)]="model" type="number" name="idCity" class="form-control" placeholder="Ville"
-                    formControlName="idCity" required>
-                    <option *ngFor="let item of listCities" [value]="item.id">{{item.name}}</option>
-                  </select>
-                </div>
+              <div class="loginbox-textbox">
+                <label class="control-label">Ville : </label>
+                <select [(ngModel)]="model" type="number" name="idCity" class="form-control" placeholder="Ville"
+                  formControlName="idCity" required>
+                  <option *ngFor="let item of listCities" [value]="item.id">{{item.name}}</option>
+                </select>
+              </div>
               <div class="loginbox-submit">
                 <button type="submit" [disabled]="!ngForm.valid" class="btn btn-success btn-block" id="modal-btn">
                   <span>Submit</span>
@@ -62,7 +63,7 @@
                 </button>
               </div>
               <div *ngIf="display" class=" alert alert-success col-md-12">
-                Cinéma modifié.
+                Film modifié.
               </div>
             </form>
           </div>

@@ -85,8 +85,25 @@ li {
     cursor: pointer;
     background-color: #DEB887;
 }
+.x-del {
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    right: 5px;
+}
 
-
+.x-edit {
+   
+    cursor: pointer;
+    position: absolute;
+    top: 50px;
+    right: 5px;
+}
+.addMovieText{
+    color: red;
+    font-style: italic;
+    text-decoration: underline;
+}
 
 /*  login ********** */
 .login-container {
