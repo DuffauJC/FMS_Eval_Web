@@ -2,7 +2,7 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Theater } from 'src/app/model/theater.model';
 import { ApiService } from 'src/app/services/api.service';
-import { City } from '../../model/city.model';
+
 
 
 @Component({
