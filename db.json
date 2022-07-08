@@ -47,6 +47,12 @@
       "address": "Place du Voisinage",
       "idCity": 4,
       "id": 5
+    },
+    {
+      "name": "Utopia Marseille Nord",
+      "address": "45 av du Stade",
+      "idCity": 2,
+      "id": 6
     }
   ],
   "movies": [
